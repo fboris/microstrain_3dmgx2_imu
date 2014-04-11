@@ -441,13 +441,13 @@ public:
     double orientation[9];
 
     imu.receiveAccelAngrateOrientation(&time, accel, angrate, orientation);
-    data.linear_acceleration.x = accel[0];
+    data.linear_acceleration.x = accel[2];
     data.linear_acceleration.y = accel[1];
-    data.linear_acceleration.z = accel[2];
+    data.linear_acceleration.z = -accel[0];
  
-    data.angular_velocity.x = angrate[0];
+    data.angular_velocity.x = angrate[2];
     data.angular_velocity.y = angrate[1];
-    data.angular_velocity.z = angrate[2];
+    data.angular_velocity.z = -angrate[0];
       
     tf::Quaternion quat;
     (tf::Matrix3x3(-1,0,0,
